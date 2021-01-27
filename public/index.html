@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket example</title>
+</head>
+
+<body>
+  <h1>Hello... Welcome to my beautiful web page</h1>
+  <input id="input" type="text">
+  <button id="btn" type="button">Send</button>
+  <button id="leave" type="button">Leave</button>
+  <p id="msg">
+
+  </p>
+
+  <script>
+    let ws = new WebSocket("ws://localhost:8080")
+    let msgQ = document.getElementById("msg")
+
+    ws.onerror = (event) => {
+      console.log(event)
+    }
+
+    ws.onopen = (event) => {
+      console.log(event)
+    }
+
+    ws.onclose = (event) => {
+      console.log(event)
+    }
+
+    ws.onmessage = (message) => {
+      msgQ.innerHTML += `</br> MESSAGE: ${message.data}`
+    }
+
+    let btn = document.getElementById("btn")
+    btn.onclick = () => {
+      let inputField = document.getElementById("input")
+      let text = inputField.value
+      inputField.value = ''
+      console.log(text)
+      ws.send(text)
+    }
+
+    document.getElementById("leave").onclick = () => {
+      ws.close()
+    }
+  </script>
+
+</body>
+
+</html>
