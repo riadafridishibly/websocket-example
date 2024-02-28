@@ -7,14 +7,18 @@
   <title>WebSocket example</title>
 </head>
 
-<body>
-  <h1>Hello... Welcome to my beautiful web page</h1>
-  <input id="input" type="text">
-  <button id="btn" type="button">Send</button>
-  <button id="leave" type="button">Leave</button>
+<body style="background-image: url(./pexels-oziel-gómez-845405.jpg)">
+  <center>
+    <form action="" style="max-width: 400px; margin: 0 auto; padding: 25px; border-top: 5px; border: 1px solid #e99d2b; border-radius: 5px;">
+  <h1>Hello... Welcome to my web page</h1>
+  <input id="input" type="text" style="border-radius: 5px;">
+  <button id="btn" type="button" style="border-radius: 5px;">Send</button>
+  <button id="leave" type="button" style="border-radius: 5px;">Leave</button>
   <p id="msg">
 
   </p>
+    </form>
+  </center>
 
   <script>
     let ws = new WebSocket("ws://localhost:8080")
